@@ -28,15 +28,13 @@ token = OAuth::AccessToken.new(
 
 client = OAuthRubytter.new(token)
 
-# users テーブルにアクセスするためのクラスを宣言
+# tweets テーブルにアクセスするためのクラスを宣言
 class Tweet < ActiveRecord::Base
 end
 
 # 全てのレコードについてループ
 array=[]
 Tweet.find(:all).each { |tw|
-  # 各レコードのフィールド(*)にアクセス
-  #  * この例では usesrテーブルの nameフィールド
   array<< tw.title
 }
 
